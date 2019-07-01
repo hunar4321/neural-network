@@ -7,5 +7,8 @@ Run the file solve_xor.m as a matlab script
 </br>
 output
 </br>
-![](images/output.jpg)
-![](images/results.jpg)
+![](images/output.JPG)
+
+</br>
+predictions vs true labels
+![](images/results.JPG)
