@@ -16,7 +16,7 @@ y = [[0],[0],[1],[1]]
 x = np.asarray(x)
 y = np.asarray(y)
 
-hidden = 20
+hidden = 4
 inp = x.shape[1]
 out = y.shape[1]
 Epochs = 1000
@@ -28,23 +28,22 @@ Wo = np.random.rand(hidden, out)
 es = []
 for ep in range(Epochs):
     for i in range(y.shape[0]):
-        z0 = x[i] @ Wx
-        z0 = np.sin(z0)
-        z1 = z0 @ Wo
+        z1 = x[i] @ Wx
         z1 = np.sin(z1)
-        
-        e = y[i]-z1
-        es.append(e)
-        
-        de1 = e * deriv(z1)
-        e2 = np.asarray([de1 * deriv(z0)])
-        de2 = np.dot(Wx, e2.T)
-        
-        
-        dWo = np.outer( z0 , de1 )
+        z2 = z1 @ Wo
+        z2 = np.sin(z2)
+        e1 = y[i]-z2        
+        de1 = e1 * deriv(z2)
+        e2 = de1 * Wo
+        de2 = e2.T * deriv(z1)
+
+        dWo = np.outer( z1 , de1 )
         dWx = np.outer( x[i], de2)
         Wo = Wo + dWo*lr
         Wx = Wx + dWx*lr
+        
+        es.append(abs(e1))
+
 
 plt.figure(1)
 plt.plot(es)
