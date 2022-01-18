@@ -1,4 +1,4 @@
-# xor neural neural net matlab
+# xor neural neural net (matlab)
 minimal neural network implementation from scratch using matlab.<br/>
 Run the file solve_xor.m as a matlab script
 
