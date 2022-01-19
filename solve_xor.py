@@ -25,6 +25,7 @@ lr = 0.1
 Wx = np.random.rand(inp, hidden)
 Wo = np.random.rand(hidden, out)
 
+## online version
 es = []
 for ep in range(Epochs):
     for i in range(y.shape[0]):
@@ -55,3 +56,35 @@ for i in range(y.shape[0]):
     z1 = np.sin(z1)
     
     print(y[i], z1)
+    
+    
+### offline version
+# es = []
+# for ep in range(Epochs):
+#     z1 = x @ Wx
+#     z1 = np.sin(z1)
+#     z2 = z1 @ Wo
+#     z2 = np.sin(z2)
+#     e1 = y-z2        
+#     de1 = e1 * deriv(z2)
+#     e2 = de1 * Wo.T
+#     de2 = e2 * deriv(z1)
+
+#     dWo = np.dot( z1.T , de1 )
+#     dWx = np.dot( x.T, de2)
+#     Wo = Wo + dWo*lr
+#     Wx = Wx + dWx*lr
+    
+#     es.append(np.sum(np.abs(e1)))
+
+
+# plt.figure(1)
+# plt.plot(es)
+
+# z0 = x @ Wx
+# z0 = np.sin(z0)
+# z1 = z0 @ Wo
+# z1 = np.sin(z1)
+
+# for i in range(len(y)):
+#     print(y[i], z1[i])
