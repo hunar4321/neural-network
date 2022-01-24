@@ -3,11 +3,9 @@ import matplotlib.pylab as plt
 
 def act(x):
     y = np.sin(x)
-    # y = 1/(1+np.exp(-x))
     return y
 def deriv(x):
     y = np.cos(x)
-    # y = x * (1-x)
     return y
 
 x = [[1,1],[0,0],[1,0],[0,1]]
