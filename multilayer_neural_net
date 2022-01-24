@@ -54,7 +54,7 @@ def act(x, atype):
         y = np.sin(x)
         # y = 1/(1+np.exp(-x))
         dy = np.cos(x)
-        # dy = x * (1-x)
+        # dy = y * (1-y)
     return y, dy
 
 #######################################################
